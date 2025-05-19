@@ -1,0 +1,30 @@
+@model WebApp.Models.Alumno
+
+@{
+    ViewData["Title"] = "Editar Alumno";
+}
+
+<h2 class="text-2xl font-bold mb-4">Editar Alumno</h2>
+
+<form asp-action="Edit" method="post" class="space-y-4">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label asp-for="Nombre" class="block font-medium">Nombre</label>
+        <input asp-for="Nombre" class="w-full border border-gray-300 p-2 rounded" />
+        <span asp-validation-for="Nombre" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div>
+        <label asp-for="Correo" class="block font-medium">Correo</label>
+        <input asp-for="Correo" class="w-full border border-gray-300 p-2 rounded" />
+        <span asp-validation-for="Correo" class="text-red-500 text-sm"></span>
+    </div>
+
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Guardar</button>
+    <a asp-action="Index" asp-controller="Admin" class="ml-4 text-gray-700 underline">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
